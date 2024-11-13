@@ -49,6 +49,20 @@ public class UsuarioController {
         }
     }
 
+
+    @PutMapping("/usuarios/{id}")
+    public ResponseEntity<Object> atualizarUsuario(@PathVariable(value = "id") UUID id, @RequestBody @Valid UsuarioDto usuarioDto) {
+        Optional<UsuarioModel> usuarioO = usuarioRepository.findById(id);
+        if (usuarioO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
+        }
+        var usuarioModel = usuarioO.get();
+        // Copiar as propriedades do DTO para o modelo existente, mas não alterar o ID
+        BeanUtils.copyProperties(usuarioDto, usuarioModel, "id");
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.save(usuarioModel));
+    }
+
+
     @DeleteMapping("/usuarios/{id}")
     public ResponseEntity<String> deletarUsuario(@PathVariable(value = "id") UUID id) {
         // Verifica se o usuário existe
