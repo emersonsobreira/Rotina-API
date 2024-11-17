@@ -13,7 +13,12 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
 
     public UsuarioService(UsuarioRepository usuarioRepository) {
+
         this.usuarioRepository = usuarioRepository;
+    }
+
+    public Optional<UsuarioModel> buscarPorId(UUID id) {
+        return usuarioRepository.findById(id);
     }
 
     public UsuarioModel salvarUsuario(UsuarioModel usuario) {
@@ -24,7 +29,4 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email);
     }
 
-    public UsuarioModel buscarPorId(UUID id) {
-        return usuarioRepository.findById(id).orElse(null);
-    }
 }

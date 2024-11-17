@@ -8,14 +8,14 @@ import java.time.LocalDateTime;
 @Entity
     @Table(name = "registroAtividade")
 
-public class RegistroAtividade {
+public class RegistroAtividadeModel {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
         @ManyToOne
         @JoinColumn(name = "habito_id")
-        private Habito habito;
+        private HabitoModel habito;
 
         private LocalDateTime dataConclusao;
 
