@@ -1,11 +1,9 @@
 package example.com.Rotina.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,14 +18,11 @@ public class UsuarioModel {
     private String senha;
     private String email;
 
-    public String getSenha() {
-        return senha;
-    }
+    @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<HabitoModel> habitos = new ArrayList<>();
+  //  @JsonManagedReference
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
+    // Getter e Setter para id
     public UUID getId() {
         return id;
     }
@@ -36,6 +31,7 @@ public class UsuarioModel {
         this.id = id;
     }
 
+    // Getter e Setter para nome
     public String getNome() {
         return nome;
     }
@@ -44,6 +40,16 @@ public class UsuarioModel {
         this.nome = nome;
     }
 
+    // Getter e Setter para senha
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    // Getter e Setter para email
     public String getEmail() {
         return email;
     }
@@ -52,4 +58,22 @@ public class UsuarioModel {
         this.email = email;
     }
 
+    // Getter e Setter para a lista de hábitos
+    public List<HabitoModel> getHabitos() {
+        return habitos;
+    }
+
+    public void setHabitos(List<HabitoModel> habitos) {
+        this.habitos = habitos;
+    }
+
+    public void addHabito(HabitoModel habito) {
+        habitos.add(habito);
+        habito.setUsuarioModel(this);
+    }
+
+    public void removeHabito(HabitoModel habito) {
+        habitos.remove(habito);
+        habito.setUsuarioModel(null);
+    }
 }
