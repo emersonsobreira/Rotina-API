@@ -1,7 +1,7 @@
 package example.com.Rotina.controller;
 
-import example.com.Rotina.dtos.UsuarioDto;
-import example.com.Rotina.models.UsuarioModel;
+import example.com.Rotina.dto.UsuarioDto;
+import example.com.Rotina.model.UsuarioModel;
 import example.com.Rotina.repository.UsuarioRepository;
 import example.com.Rotina.service.UsuarioService;
 import jakarta.validation.Valid;

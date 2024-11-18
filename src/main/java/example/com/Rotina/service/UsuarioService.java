@@ -1,8 +1,7 @@
 package example.com.Rotina.service;
 
-import example.com.Rotina.models.UsuarioModel;
+import example.com.Rotina.model.UsuarioModel;
 import example.com.Rotina.repository.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.UUID;
