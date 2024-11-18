@@ -1,8 +1,9 @@
-package example.com.Rotina.models;
+package example.com.Rotina.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+
 import java.time.LocalTime;
 
 @Entity
@@ -24,6 +25,7 @@ public class HabitoModel {
     private UsuarioModel usuarioModel;
 
     private int frequenciaSemanal;
+
 
     public Long getId() {
         return id;

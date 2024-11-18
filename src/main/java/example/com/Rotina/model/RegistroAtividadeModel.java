@@ -1,4 +1,4 @@
-package example.com.Rotina.models;
+package example.com.Rotina.model;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Table;

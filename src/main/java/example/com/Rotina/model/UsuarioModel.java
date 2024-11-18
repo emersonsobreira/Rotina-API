@@ -1,4 +1,4 @@
-package example.com.Rotina.models;
+package example.com.Rotina.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -20,7 +20,8 @@ public class UsuarioModel {
 
     @OneToMany(mappedBy = "usuarioModel", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<HabitoModel> habitos = new ArrayList<>();
-  //  @JsonManagedReference
+    @JsonManagedReference
+
 
     // Getter e Setter para id
     public UUID getId() {

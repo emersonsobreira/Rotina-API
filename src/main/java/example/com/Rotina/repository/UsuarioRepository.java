@@ -1,6 +1,6 @@
 package example.com.Rotina.repository;
 
-import example.com.Rotina.models.UsuarioModel;
+import example.com.Rotina.model.UsuarioModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;
