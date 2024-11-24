@@ -28,6 +28,7 @@ public class HabitoController {
     private UsuarioService usuarioService;
     @Autowired
     private HabitoRepository habitoRepository;
+    private HabitoModel habito;
 
     @PostMapping("/usuarios/{usuarioId}/habitos")
     public ResponseEntity<Object> adicionarHabito(@PathVariable UUID usuarioId, @RequestBody @Valid HabitoDto habitoDto) {
