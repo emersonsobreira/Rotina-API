@@ -3,16 +3,20 @@ package example.com.Rotina.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "habitos")
 public class HabitoModel {
-    private String nome;
+    @NotNull
+    private String name;
+    @NotNull
     private String descricao;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+    @NotNull
     private LocalTime horarioDesejado;
 
     @Id
@@ -20,12 +24,11 @@ public class HabitoModel {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "user_id", nullable = false)
     @JsonBackReference
-    private UsuarioModel usuarioModel;
+    private UserModel usuarioModel;
 
     private int frequenciaSemanal;
-
 
     public Long getId() {
         return id;
@@ -35,13 +38,12 @@ public class HabitoModel {
         this.id = id;
     }
 
-    // Getter e Setter para nome
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     // Getter e Setter para descricao
@@ -72,11 +74,11 @@ public class HabitoModel {
     }
 
     // Getter e Setter para usuarioModel
-    public UsuarioModel getUsuarioModel() {
+    public UserModel getUsuarioModel() {
         return usuarioModel;
     }
 
-    public void setUsuarioModel(UsuarioModel usuarioModel) {
+    public void setUsuarioModel(UserModel usuarioModel) {
         this.usuarioModel = usuarioModel;
     }
 }

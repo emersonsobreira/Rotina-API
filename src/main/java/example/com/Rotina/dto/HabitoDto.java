@@ -1,7 +1,7 @@
 package example.com.Rotina.dto;
 
 public class HabitoDto {
-        private String nome;
+        private String name;
         private String descricao;
         private String horarioDesejado;
         private int frequenciaSemanal;
@@ -30,14 +30,13 @@ public class HabitoDto {
         this.descricao = descricao;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
 }
-
 
