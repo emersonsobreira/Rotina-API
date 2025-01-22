@@ -27,7 +27,7 @@
 ## Como Executar
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/Rotina-API.git
+   git clone https://github.com/emersonsobreira/Rotina-API.git
 
 2. Configure o banco de dados no arquivo application.properties.
 3. Execute o comando
