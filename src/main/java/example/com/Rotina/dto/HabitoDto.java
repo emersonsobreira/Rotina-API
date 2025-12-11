@@ -1,10 +1,11 @@
 package example.com.Rotina.dto;
 
 public class HabitoDto {
-        private String nome;
-        private String descricao;
-        private String horarioDesejado;
-        private int frequenciaSemanal;
+
+    private String nome;
+    private String descricao;
+    private String horarioDesejado;
+    private int frequenciaSemanal;
 
     public int getFrequenciaSemanal() {
         return frequenciaSemanal;
@@ -39,5 +40,3 @@ public class HabitoDto {
     }
 
 }
-
-
